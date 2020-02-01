@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand navbar-dark bg-ow-dark">
+  <a class="navbar-brand" href="#">
+    <img
+      height="40"
+      alt="Angular Logo"
+      src="https://openweathermap.org/themes/openweathermap/assets/img/openweather-negative-logo-RGB.png"
+    />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['home']">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['cities']">Ciudades</a>
+      </li>
+    </ul>
+      <a class="navbar-brand" href="https://github.com/fseba/open-wheather-frontend">
+        <img
+          height="40"
+          alt="Github logo"
+          src="assets/img/GitHub-Mark-Light-120px-plus.png"
+        />
+      </a>
+  </div>
+</nav>
+<router-outlet></router-outlet>

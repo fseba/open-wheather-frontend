@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">País</th>
+        <th scope="col">Latitud</th>
+        <th scope="col">Longitud</th>
+        <th scope="col">Seleccionar</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let city of cities">
+        <th scope="row">{{city.id}}</th>
+        <td>{{city.name}}</td>
+        <td>{{city.country}}</td>
+        <td>{{city.coord.lat}}</td>
+        <td>{{city.coord.lon}}</td>
+        <td>
+          <button class="btn btn-success" *ngIf="city.id == selectedCityId"><fa-icon [icon]="faCheck"></fa-icon> </button>
+          <button (click)="selectCity(city.id)" class="btn btn-outline-success" *ngIf="city.id != selectedCityId"><fa-icon [icon]="faPlus"></fa-icon></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

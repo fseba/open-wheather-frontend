@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="jumbotron mt-4">
+    <h1 class="display-4">{{selectedCity.name}}</h1>
+    <p class="lead">{{selectedCity.country}}
+  </div>
+  <div class="alert alert-info" role="alert" *ngIf="loading">
+    Cargando
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!loading && error">
+    Ha ocurrido un error
+  </div>
+  <div  *ngIf="!loading && !error">
+    <div class="card-columns">
+      <div class="card mb-3 bg-transparent">
+        <div class="card-header  text-white bg-primary">Hoy</div>
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item list-group-item-primary"><b>Temp. Máxima: </b>{{todayCityInfo.main.temp_max}} °C</li>
+          <li class="list-group-item list-group-item-primary"><b>Temp. Mínima: </b>{{todayCityInfo.main.temp_min}} °C</li>
+          <li class="list-group-item list-group-item-primary"><b>Sensación térmica: </b>{{todayCityInfo.main.feels_like}} °C</li>
+          <li class="list-group-item list-group-item-primary"><b>Humedad: </b>{{todayCityInfo.main.humidity}} %</li>
+          <li class="list-group-item list-group-item-primary"><b>Presión: </b>{{todayCityInfo.main.pressure}}	Pa</li>
+          <li class="list-group-item list-group-item-primary"><b>Clima: </b>{{todayCityInfo.weather[0].description}}</li>
+        </ul>
+      </div>
+      <div class="card mb-3 bg-transparent" *ngFor="let cityInfo of nextDays">
+        <div class="card-header  text-white bg-secondary">{{cityInfo.dt_txt}}</div>
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item list-group-item-secondary"><b>Temp. Máxima: </b>{{cityInfo.main.temp_max}} °C</li>
+          <li class="list-group-item list-group-item-secondary"><b>Temp. Mínima: </b>{{cityInfo.main.temp_min}} °C</li>
+          <li class="list-group-item list-group-item-secondary"><b>Sensación térmica: </b>{{cityInfo.main.feels_like}} °C</li>
+          <li class="list-group-item list-group-item-secondary"><b>Humedad: </b>{{cityInfo.main.humidity}} %</li>
+          <li class="list-group-item list-group-item-secondary"><b>Presión: </b>{{cityInfo.main.pressure}}	Pa</li>
+          <li class="list-group-item list-group-item-secondary"><b>Clima: </b>{{cityInfo.weather[0].description}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
